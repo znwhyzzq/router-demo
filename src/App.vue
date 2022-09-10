@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div id="app"> 
+<router-view/>
+   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './views/Home.vue'
+import Open from './views/Open.vue'
+import In from './views/In.vue'
+import Hope from './views/Hope.vue'
+import about from './views/about.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: "App",
+    
+            methods:{
+            handle (){
+                this.$router.go(-1);
+            }
+        },
+  data() {
+    return {
+      key: Date.now()
+    };
+  },
+  created() {
+    setInterval(() => {
+      this.key=Date.now();
+    }, 300000);
+
+}
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+ 
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
+
+body{
+  margin:0;
+  padding:0;
+  border:0
+}
+
 </style>
